@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import pokemon from "./pokemon.json";
+import PropTypes from "prop-types";
+
+import "./App.css";
+
+const PokemonRow = ({ pokemon }) => (
+  <>
+    <tr key={pokemon.id}>
+      <td>{pokemon.name.english}</td>
+      <td>{pokemon.type.join(", ")}</td>
+    </tr>
+  </>
+);
+
+PokemonRow.propTypes = {
+  pokemon: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.shape({
+        english: PropTypes.string.isRequired,
+      }),
+      type: PropTypes.arrayOf(PropTypes.string.isRequired),
+    })
+  ),
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        margin: "auto",
+        width: 800,
+        paddingTop: "1em",
+      }}
+    >
+      <h1 className="title">Pokemon Search</h1>
+      <table width="100%">
+        <thead>
+            <tr>
+              <th> Name</th>
+              <th> Type</th>
+            </tr>
+        </thead>
+        <tbody>
+          {pokemon.slice(0, 20).map((pokemon) => (
+            <PokemonRow pokemon={pokemon} />
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
