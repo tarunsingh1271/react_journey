@@ -1,8 +1,30 @@
+table{
+  width: 80%;
+  text-transform: capitalize;
+}
+div{
+  margin-left: 15rem;
+  width: 80%;
+  padding-top: "1rem";
+}
+
 .title{
+  
+  width: 80%;
+  text-transform: uppercase;
+  background-image: -webkit-linear-gradient(red, yellow);
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family:'Times New Roman', Times, serif
 }
 th{
   text-align: left;
   font-size: x-large;
+}
+input{
+  background-color: lightgoldenrodyellow;
+  color: black;
+  padding: 0.5 rem;
+  width: 60%;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
 }
