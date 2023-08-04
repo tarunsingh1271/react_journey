@@ -31,10 +31,13 @@ function App() {
   return (
     <div>
       <h1 className="title">Pokemon Search</h1>
-      <input search placeholder="Search Here !!!"
+      
+      <button class="btn-search"> <i class="fas fa-search"> </i></button>
+
+      <input type="text" class="input-search" placeholder="Type to Search..."
       value ={filter}
-      onChange={(evt) => filterset(evt.target.value)}
-      />
+      onChange={(evt) => filterset(evt.target.value)} />
+      
       <table width="100%">
         <thead>
             <tr>
@@ -45,7 +48,8 @@ function App() {
         <tbody>
           {pokemon
           .filter((pokemon) => pokemon.name.english.toLowerCase().includes(filter.toLowerCase()))
-          .slice(0, 20).map((pokemon) => (
+          .slice(0, 30).map((pokemon) => 
+          (
             <PokemonRow pokemon={pokemon} />
           ))}
         </tbody>
